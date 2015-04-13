@@ -1,0 +1,19 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="it.neokree.materialtabtest">
+
+    <application android:allowBackup="true"
+                 android:label="@string/app_name" >
+        <activity
+                android:name=".MainActivity"
+                android:label="@string/app_name" />
+        <activity android:name=".IconTabActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".SwipableIconTabActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".SwipableTextTabActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".TextTabActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+    </application>
+
+</manifest>

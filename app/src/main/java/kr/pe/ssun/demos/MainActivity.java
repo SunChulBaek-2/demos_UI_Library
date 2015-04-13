@@ -1,17 +1,38 @@
 package kr.pe.ssun.demos;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 
 public class MainActivity extends ActionBarActivity {
+  private ListView mLvLibraries;
+
+  private final String[] mLibraries = new String[]{
+      "MaterialTab"
+  };
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+
+    mLvLibraries = (ListView) findViewById(R.id.lvLibraries);
+    mLvLibraries.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
+                                                     mLibraries));
+    mLvLibraries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      @Override
+      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent i = new Intent(MainActivity.this, it.neokree.materialtabtest.MainActivity.class);
+        startActivity(i);
+      }
+    });
   }
 
 
