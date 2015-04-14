@@ -15,7 +15,8 @@ public class MainActivity extends ActionBarActivity {
   private ListView mLvLibraries;
 
   private final String[] mLibraries = new String[]{
-      "MaterialTab"
+      "MaterialTab",
+      "AndroidChips"
   };
 
   @Override
@@ -29,8 +30,13 @@ public class MainActivity extends ActionBarActivity {
     mLvLibraries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
       @Override
       public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent i = new Intent(MainActivity.this, it.neokree.materialtabtest.MainActivity.class);
-        startActivity(i);
+        if(position == 0) {
+          Intent i = new Intent(MainActivity.this, it.neokree.materialtabtest.MainActivity.class);
+          startActivity(i);
+        } else if(position == 1) {
+          Intent i = new Intent(MainActivity.this, com.android.ex.chips.sample.MainActivity.class);
+          startActivity(i);
+        }
       }
     });
   }
