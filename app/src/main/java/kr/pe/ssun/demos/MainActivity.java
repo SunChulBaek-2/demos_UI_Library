@@ -10,14 +10,20 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 
 public class MainActivity extends ActionBarActivity {
   private ListView mLvLibraries;
 
-  private final String[] mLibraries = new String[]{
-      "MaterialTab",
-      "AndroidChips"
-  };
+  private static ArrayList<Library> mLibraries = new ArrayList<>();
+  static {
+    mLibraries.add(Library.MATERIAL_TAB);
+    mLibraries.add(Library.ANDROID_CHIPS);
+
+    Collections.sort(mLibraries, new LibraryNameComparator());
+  }
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -25,18 +31,16 @@ public class MainActivity extends ActionBarActivity {
     setContentView(R.layout.activity_main);
 
     mLvLibraries = (ListView) findViewById(R.id.lvLibraries);
-    mLvLibraries.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-                                                     mLibraries));
+    mLvLibraries.setAdapter(new ArrayAdapter<Library>(this,
+                                                      android.R.layout.simple_list_item_1,
+                                                      android.R.id.text1,
+                                                      mLibraries));
     mLvLibraries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
       @Override
       public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if(position == 0) {
-          Intent i = new Intent(MainActivity.this, it.neokree.materialtabtest.MainActivity.class);
-          startActivity(i);
-        } else if(position == 1) {
-          Intent i = new Intent(MainActivity.this, com.android.ex.chips.sample.MainActivity.class);
-          startActivity(i);
-        }
+        Library selectedLibrary = mLibraries.get(position);
+        Intent i = new Intent(MainActivity.this, selectedLibrary.getClazz());
+        startActivity(i);
       }
     });
   }
