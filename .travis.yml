@@ -6,7 +6,11 @@ android:
     - build-tools-21.1.2
 
 notifications:
-  email: true
+  email:
+    recipients:
+      - x1210x@gmail.com
+    on_success: always
+    on_failure: always
 
 before_install:
   - chmod +x gradlew
