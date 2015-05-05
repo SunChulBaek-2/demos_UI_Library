@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="desc_android_chips">https://github.com/klinker41/android-chips</string>
+    <string name="desc_material_tabs">https://github.com/neokree/MaterialTabs</string>
 </resources>

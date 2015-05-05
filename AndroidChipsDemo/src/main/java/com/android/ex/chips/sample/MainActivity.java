@@ -16,8 +16,10 @@
 package com.android.ex.chips.sample;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -25,13 +27,39 @@ import android.widget.MultiAutoCompleteTextView;
 import com.android.ex.chips.BaseRecipientAdapter;
 import com.android.ex.chips.RecipientEditTextView;
 import com.android.ex.chips.recipientchip.DrawableRecipientChip;
+import com.balysv.materialmenu.MaterialMenuDrawable;
+
+import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_PRESSED_DURATION;
+import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_SCALE;
+import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_TRANSFORM_DURATION;
 
 public class MainActivity extends Activity {
+    private MaterialMenuDrawable materialMenu;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_chips);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        materialMenu = new MaterialMenuDrawable(this,
+                Color.WHITE,
+                MaterialMenuDrawable.Stroke.THIN,
+                DEFAULT_SCALE,
+                DEFAULT_TRANSFORM_DURATION,
+                DEFAULT_PRESSED_DURATION);
+        materialMenu.setIconState(MaterialMenuDrawable.IconState.ARROW);
+        toolbar.setNavigationIcon(materialMenu);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        toolbar.setTitle("AndroidChips");
+        toolbar.setTitleTextColor(Color.WHITE);
 
         final RecipientEditTextView phoneRetv =
                 (RecipientEditTextView) findViewById(R.id.phone_retv);

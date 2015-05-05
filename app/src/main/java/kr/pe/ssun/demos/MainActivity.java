@@ -1,21 +1,24 @@
 package kr.pe.ssun.demos;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 import com.balysv.materialmenu.MaterialMenuDrawable;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
+import kr.pe.ssun.demos.adapter.MainListAdapter;
+import kr.pe.ssun.demos.adapter.MainStaggeredGridAdapter;
 
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_PRESSED_DURATION;
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_SCALE;
@@ -25,7 +28,7 @@ import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_TRANSFORM_DUR
 public class MainActivity extends AppCompatActivity {
 	private Toolbar toolbar;
 	private MaterialMenuDrawable materialMenu;
-	private ListView mLvLibraries;
+	private RecyclerView rvLibraries;
 
 	private static ArrayList<Library> mLibraries = new ArrayList<>();
 
@@ -41,24 +44,26 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		RelativeLayout view = (RelativeLayout) findViewById(R.id.rlRoot);
+		if(view.getTag() != null) {
+			String tag = (String) view.getTag();
+			Screen.setCurrent(Screen.valueOf(tag.toUpperCase()));
+		}
+
 		if (getSupportActionBar() != null) {
 			getSupportActionBar().hide();
 		}
 		setupToolbar();
 
-		mLvLibraries = (ListView) findViewById(R.id.lvLibraries);
-		mLvLibraries.setAdapter(new ArrayAdapter<>(this,
-				android.R.layout.simple_list_item_1,
-				android.R.id.text1,
-				mLibraries));
-		mLvLibraries.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				Library selectedLibrary = mLibraries.get(position);
-				Intent i = new Intent(MainActivity.this, selectedLibrary.getClazz());
-				startActivity(i);
-			}
-		});
+		rvLibraries = (RecyclerView) findViewById(R.id.rvLibraries);
+		if(Screen.getCurrent().equals(Screen.LARGE_LAND)) {
+			rvLibraries.setLayoutManager(new StaggeredGridLayoutManager(2,
+					StaggeredGridLayoutManager.VERTICAL));
+			rvLibraries.setAdapter(new MainStaggeredGridAdapter());
+		} else {
+			rvLibraries.setLayoutManager(new LinearLayoutManager(this));
+			rvLibraries.setAdapter(new MainListAdapter());
+		}
 	}
 
 	private void setupToolbar() {
