@@ -1,5 +1,7 @@
 package kr.pe.ssun.demos.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,11 +24,22 @@ public class MainListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 	}
 
 	@Override
-	public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-		View itemView = holder.itemView;
+	public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
+		final View itemView = holder.itemView;
+
 		AppCompatTextView actvTitle = (AppCompatTextView) itemView.findViewById(R.id.actvTitle);
 
 		actvTitle.setText(Library.values()[position].getTitle());
+
+		itemView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				int position = holder.getLayoutPosition();
+				Context context = itemView.getContext();
+				Intent i = new Intent(context, Library.values()[position].getClazz());
+				context.startActivity(i);
+			}
+		});
 	}
 
 	@Override
