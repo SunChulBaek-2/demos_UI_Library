@@ -1,1 +1,1 @@
-include ':app', ':MaterialTabTest', ':AndroidChipsDemo'
+include ':app', ':MaterialTabTest', ':AndroidChipsDemo', ':FloatingActionButtonSample'

@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AndroidChipsDemo" />
+            <option value="$PROJECT_DIR$/FloatingActionButtonSample" />
             <option value="$PROJECT_DIR$/MaterialTabTest" />
             <option value="$PROJECT_DIR$/app" />
           </set>

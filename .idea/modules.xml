@@ -3,11 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidChipsDemo/AndroidChipsDemo.iml" filepath="$PROJECT_DIR$/AndroidChipsDemo/AndroidChipsDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MaterialTabTest/MaterialTabDemo.iml" filepath="$PROJECT_DIR$/MaterialTabTest/MaterialTabDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FloatingActionButtonSample/FloatingActionButtonSample.iml" filepath="$PROJECT_DIR$/FloatingActionButtonSample/FloatingActionButtonSample.iml" />
       <module fileurl="file://$PROJECT_DIR$/MaterialTabTest/MaterialTabTest.iml" filepath="$PROJECT_DIR$/MaterialTabTest/MaterialTabTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/demos_AndroidUI.iml" filepath="$PROJECT_DIR$/demos_AndroidUI.iml" />
     </modules>
   </component>
 </project>
-
