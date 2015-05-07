@@ -1,5 +1,7 @@
-test:
+dependencies:
   pre:
-    - chmod +x gradlew
+    - echo y | android update sdk --no-ui
+test:
   override:
-    - ./gradlew cleam assemble
+    - chmod +x gradlew
+    - ./gradlew clean assemble
