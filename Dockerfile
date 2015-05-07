@@ -34,5 +34,6 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 RUN echo "y" | android update sdk --no-ui --force --filter platform-tools,android-22,build-tools-22.0.1,extra-android-support,extra-android-support,extra-android-m2repository
 
 # build
-RUN chmod +x gradlew
-RUN ./gradlew clean assemble
+# RUN chmod +x gradlew
+# RUN ./gradlew clean assemble
+RUN ls -al
