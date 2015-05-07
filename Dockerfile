@@ -1,6 +1,10 @@
 FROM ubuntu:14.04
 MAINTAINER x1210x <x1210x@gmail.com>
 
+# Add oracle-jdk6 to repositories
+RUN add-apt-repository ppa:webupd8team/java
+
+# Update apt
 RUN apt-get update
 
 # Install Java 8
