@@ -1,6 +1,10 @@
 FROM ubuntu:14.04
 MAINTAINER x1210x <x1210x@gmail.com>
 
+# Never ask for confirmations
+RUN echo "debconf shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
+RUN echo "debconf shared/accepted-oracle-license-v1-1 seen true" | debconf-set-selections
+
 # Add oracle-jdk6 to repositories
 RUN add-apt-repository ppa:webupd8team/java
 
