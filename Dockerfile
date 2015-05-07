@@ -38,9 +38,7 @@ RUN echo "y" | android update sdk --no-ui --force --filter platform-tools,androi
 
 # build
 RUN git clone https://github.com/x1210x/demos_UI_Library.git demos_UI_Library
-RUN ls -al
-RUN cd demos_UI_Library
-RUN ls -al
+WORKDIR demos_UI_Library
 RUN chmod +x gradlew
 
 CMD ./gradlew clean assemble
