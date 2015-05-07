@@ -5,6 +5,9 @@ MAINTAINER x1210x <x1210x@gmail.com>
 RUN echo "debconf shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections
 RUN echo "debconf shared/accepted-oracle-license-v1-1 seen true" | debconf-set-selections
 
+# First, install add-apt-repository and bzip2
+RUN apt-get -y install software-properties-common python-software-properties
+
 # Add oracle-jdk6 to repositories
 RUN add-apt-repository ppa:webupd8team/java
 
