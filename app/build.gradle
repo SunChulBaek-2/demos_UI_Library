@@ -21,9 +21,9 @@ android {
 }
 
 dependencies {
-    compile project(':MaterialTabTest')
-    compile project(':AndroidChipsDemo')
-    compile project(':FloatingActionButtonSample')
+    compile project(':SampleAndroidChips')
+    compile project(':SampleFloatingActionButton')
+    compile project(':SampleMaterialTab')
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.1.0+'
     compile 'com.android.support:recyclerview-v7:22.1.0+'
