@@ -6,7 +6,7 @@ RUN echo "debconf shared/accepted-oracle-license-v1-1 select true" | debconf-set
 RUN echo "debconf shared/accepted-oracle-license-v1-1 seen true" | debconf-set-selections
 
 # First, install add-apt-repository and bzip2
-RUN apt-get -y install software-properties-common python-software-properties
+RUN apt-get -y install software-properties-common
 
 # Add oracle-jdk6 to repositories
 RUN add-apt-repository ppa:webupd8team/java
