@@ -37,7 +37,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 RUN echo "y" | android update sdk --no-ui --force --filter platform-tools,android-22,build-tools-22.0.1,extra-android-support,extra-android-support,extra-android-m2repository
 
 # build
-RUN git clone git@github.com:x1210x/demos_UI_Library.git demos_UI_Library
+RUN git clone https://github.com/x1210x/demos_UI_Library.git demos_UI_Library
 RUN cd demos_UI_Library
 RUN chmod +x gradlew
 
