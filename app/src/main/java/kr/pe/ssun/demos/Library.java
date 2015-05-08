@@ -6,7 +6,8 @@ package kr.pe.ssun.demos;
 public enum Library {
   MATERIAL_TAB("MaterialTab", R.string.desc_material_tabs, it.neokree.materialtabtest.MainActivity.class),
   ANDROID_CHIPS("AndroidChips", R.string.desc_android_chips, com.android.ex.chips.sample.MainActivity.class),
-  FLOATING_ACTION_BUTTON("FloatingActionButton", R.string.desc_floating_action_button, com.getbase.floatingactionbutton.sample.MainActivity.class);
+  FLOATING_ACTION_BUTTON("FloatingActionButton", R.string.desc_floating_action_button, com.getbase.floatingactionbutton.sample.MainActivity.class),
+  FLOATING_ACTION_BUTTON2("FloatingActionButton", R.string.desc_floating_action_button2, com.melnykov.fab.sample.MainActivity.class);
 
   private String title;
   private int desc;

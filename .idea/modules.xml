@@ -4,9 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SampleAndroidChips/SampleAndroidChips.iml" filepath="$PROJECT_DIR$/SampleAndroidChips/SampleAndroidChips.iml" />
       <module fileurl="file://$PROJECT_DIR$/SampleFloatingActionButton/SampleFloatingActionButton.iml" filepath="$PROJECT_DIR$/SampleFloatingActionButton/SampleFloatingActionButton.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SampleFloatingActionButton2/SampleFloatingActionButton2.iml" filepath="$PROJECT_DIR$/SampleFloatingActionButton2/SampleFloatingActionButton2.iml" />
       <module fileurl="file://$PROJECT_DIR$/SampleMaterialTab/SampleMaterialTab.iml" filepath="$PROJECT_DIR$/SampleMaterialTab/SampleMaterialTab.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/demos_UI_Library.iml" filepath="$PROJECT_DIR$/demos_UI_Library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demos_AndroidUI.iml" filepath="$PROJECT_DIR$/demos_AndroidUI.iml" />
     </modules>
   </component>
 </project>
