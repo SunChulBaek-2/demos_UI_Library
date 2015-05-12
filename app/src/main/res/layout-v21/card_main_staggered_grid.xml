@@ -15,7 +15,7 @@
 	<RelativeLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:background="@drawable/bg_card_main">
+		android:background="?android:attr/selectableItemBackground">
 
 		<android.support.v7.widget.AppCompatTextView
 			android:id="@+id/actvTitle"
