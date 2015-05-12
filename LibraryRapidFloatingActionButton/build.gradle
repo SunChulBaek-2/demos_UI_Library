@@ -30,5 +30,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.github.wangjiegulu:AndroidBucket:1.0.2'
+    compile 'com.balysv.materialmenu:material-menu-toolbar:1.5.1+'
     //    compile project(':AndroidBucket')
 }

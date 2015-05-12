@@ -3,14 +3,17 @@ package com.melnykov.fab.sample;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
@@ -24,71 +27,111 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.balysv.materialmenu.MaterialMenuDrawable;
 import com.melnykov.fab.FloatingActionButton;
 import com.melnykov.fab.ObservableScrollView;
 import com.melnykov.fab.ScrollDirectionListener;
 
-public class MainActivity extends AppCompatActivity {
+import it.neokree.materialtabs.MaterialTab;
+import it.neokree.materialtabs.MaterialTabHost;
+import it.neokree.materialtabs.MaterialTabListener;
+
+import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_PRESSED_DURATION;
+import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_SCALE;
+import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_TRANSFORM_DURATION;
+
+public class MainActivity extends AppCompatActivity implements MaterialTabListener {
+    private Toolbar toolbar;
+    private MaterialMenuDrawable materialMenu;
+    private MaterialTabHost tabHost;
+    private ViewPager pager;
+    private PagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initActionBar();
-    }
+        setContentView(R.layout.activity_fab2);
+        getSupportActionBar().hide();
 
-    @SuppressWarnings("deprecation")
-    private void initActionBar() {
-        if (getSupportActionBar() != null) {
-            ActionBar actionBar = getSupportActionBar();
-            actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-            actionBar.addTab(actionBar.newTab()
-                    .setText("ListView")
-                    .setTabListener(new ActionBar.TabListener() {
-                        @Override
-                        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-                            fragmentTransaction.replace(android.R.id.content, new ListViewFragment());
-                        }
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        tabHost = (MaterialTabHost) findViewById(R.id.tabHost);
+        pager = (ViewPager) findViewById(R.id.viewPager);
 
-                        @Override
-                        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-                        }
+        materialMenu = new MaterialMenuDrawable(this,
+                Color.WHITE,
+                MaterialMenuDrawable.Stroke.THIN,
+                DEFAULT_SCALE,
+                DEFAULT_TRANSFORM_DURATION,
+                DEFAULT_PRESSED_DURATION);
+        materialMenu.setIconState(MaterialMenuDrawable.IconState.ARROW);
+        toolbar.setNavigationIcon(materialMenu);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
-                        @Override
-                        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-                        }
-                    }));
-            actionBar.addTab(actionBar.newTab()
-                    .setText("RecyclerView")
-                    .setTabListener(new ActionBar.TabListener() {
-                        @Override
-                        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-                            fragmentTransaction.replace(android.R.id.content, new RecyclerViewFragment());
-                        }
+        toolbar.setTitle("FloatingActionButton2");
+        toolbar.setTitleTextColor(Color.WHITE);
 
-                        @Override
-                        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-                        }
+        adapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+            @Override
+            public int getCount() {
+                return 3;
+            }
 
-                        @Override
-                        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-                        }
-                    }));
-            actionBar.addTab(actionBar.newTab()
-                    .setText("ScrollView")
-                    .setTabListener(new ActionBar.TabListener() {
-                        @Override
-                        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-                            fragmentTransaction.replace(android.R.id.content, new ScrollViewFragment());
-                        }
+            @Override
+            public Fragment getItem(int position) {
+                if (position == 0) {
+                    return new ListViewFragment();
+                } else if (position == 1) {
+                    return new RecyclerViewFragment();
+                } else if (position == 2) {
+                    return new ScrollViewFragment();
+                }
+                return null;
+            }
 
-                        @Override
-                        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-                        }
+            @Override
+            public String getPageTitle(int i) {
+                if (i == 0) {
+                    return "ListView";
+                } else if (i == 1) {
+                    return "RecyclerView";
+                } else if (i == 2) {
+                    return "ScrollView";
+                }
+                return null;
+            }
+        };
+        pager.setAdapter(adapter);
 
-                        @Override
-                        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-                        }
-                    }));
+        pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                tabHost.setSelectedNavigationItem(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+        // insert all tabs from pagerAdapter data
+        for (int i = 0; i < adapter.getCount(); i++) {
+            tabHost.addTab(
+                    tabHost.newTab()
+                            .setText(adapter.getPageTitle(i))
+                            .setTabListener(this)
+            );
+
         }
     }
 
@@ -116,6 +159,21 @@ public class MainActivity extends AppCompatActivity {
                     }).create().show();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onTabSelected(MaterialTab materialTab) {
+        pager.setCurrentItem(materialTab.getPosition());
+    }
+
+    @Override
+    public void onTabReselected(MaterialTab materialTab) {
+
+    }
+
+    @Override
+    public void onTabUnselected(MaterialTab materialTab) {
+
     }
 
     public static class ListViewFragment extends Fragment {

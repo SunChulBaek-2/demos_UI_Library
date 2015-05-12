@@ -82,6 +82,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -98,6 +99,7 @@
     <orderEntry type="module" module-name="SampleAndroidChips" exported="" />
     <orderEntry type="module" module-name="SampleFloatingActionButton2" exported="" />
     <orderEntry type="module" module-name="SampleFloatingActionButton" exported="" />
+    <orderEntry type="module" module-name="SampleRapidFloatingActionButton" exported="" />
     <orderEntry type="module" module-name="SampleMaterialTab" exported="" />
   </component>
 </module>
