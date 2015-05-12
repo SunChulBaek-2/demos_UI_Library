@@ -2,11 +2,11 @@ package com.wangjie.rapidfloatingactionbutton.example;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
+
 import com.wangjie.androidbucket.utils.ABTextUtil;
 import com.wangjie.androidbucket.utils.imageprocess.ABShape;
-import com.wangjie.androidinject.annotation.annotations.base.AILayout;
-import com.wangjie.androidinject.annotation.annotations.base.AIView;
-import com.wangjie.androidinject.annotation.present.AIActionBarActivity;
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton;
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionHelper;
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout;
@@ -21,7 +21,7 @@ import java.util.List;
  * Email: tiantian.china.2@gmail.com
  * Date: 5/4/15.
  */
-public class LabelListSampleActivity extends AIActionBarActivity implements RapidFloatingActionContentLabelList.OnRapidFloatingActionContentListener {
+public class LabelListSampleActivity extends AppCompatActivity implements RapidFloatingActionContentLabelList.OnRapidFloatingActionContentListener {
     private RapidFloatingActionLayout rfaLayout;
     private RapidFloatingActionButton rfaButton;
     private RapidFloatingActionHelper rfabHelper;
@@ -50,7 +50,7 @@ public class LabelListSampleActivity extends AIActionBarActivity implements Rapi
         */
 
 
-        RapidFloatingActionContentLabelList rfaContent = new RapidFloatingActionContentLabelList(context);
+        RapidFloatingActionContentLabelList rfaContent = new RapidFloatingActionContentLabelList(this);
         rfaContent.setOnRapidFloatingActionContentListener(this);
         List<RFACLabelItem> items = new ArrayList<>();
         items.add(new RFACLabelItem<Integer>()
@@ -67,7 +67,7 @@ public class LabelListSampleActivity extends AIActionBarActivity implements Rapi
                         .setIconPressedColor(0xff3e2723)
                         .setLabelColor(Color.WHITE)
                         .setLabelSizeSp(14)
-                        .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
+                        .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(this, 4)))
                         .setWrapper(1)
         );
         items.add(new RFACLabelItem<Integer>()
@@ -88,13 +88,13 @@ public class LabelListSampleActivity extends AIActionBarActivity implements Rapi
         );
         rfaContent
                 .setItems(items)
-                .setIconShadowRadius(ABTextUtil.dip2px(context, 5))
+                .setIconShadowRadius(ABTextUtil.dip2px(this, 5))
                 .setIconShadowColor(0xff888888)
-                .setIconShadowDy(ABTextUtil.dip2px(context, 5))
+                .setIconShadowDy(ABTextUtil.dip2px(this, 5))
         ;
 
         rfabHelper = new RapidFloatingActionHelper(
-                context,
+                this,
                 rfaLayout,
                 rfaButton,
                 rfaContent
@@ -105,13 +105,13 @@ public class LabelListSampleActivity extends AIActionBarActivity implements Rapi
 
     @Override
     public void onRFACItemLabelClick(int position, RFACLabelItem item) {
-        showToastMessage("clicked label: " + position);
+        Toast.makeText(this, "clicked label: " + position, Toast.LENGTH_SHORT).show();
         rfabHelper.toggleContent();
     }
 
     @Override
     public void onRFACItemIconClick(int position, RFACLabelItem item) {
-        showToastMessage("clicked icon: " + position);
+        Toast.makeText(this, "clicked icon: " + position, Toast.LENGTH_SHORT).show();
         rfabHelper.toggleContent();
     }
 }

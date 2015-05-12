@@ -7,9 +7,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
-import com.wangjie.androidinject.annotation.annotations.base.AILayout;
-import com.wangjie.androidinject.annotation.annotations.base.AIView;
-import com.wangjie.androidinject.annotation.present.AIActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
+
 import com.wangjie.rapidfloatingactionbutton.example.R;
 import com.wangjie.rapidfloatingactionbutton.listener.OnRapidFloatingButtonGroupListener;
 import com.wangjie.rapidfloatingactionbutton.rfabgroup.RapidFloatingActionButtonGroup;
@@ -22,7 +21,7 @@ import java.util.List;
  * Email: tiantian.china.2@gmail.com
  * Date: 5/4/15.
  */
-public class RFABGroupSampleActivity extends AIActionBarActivity implements OnRapidFloatingButtonGroupListener {
+public class RFABGroupSampleActivity extends AppCompatActivity implements OnRapidFloatingButtonGroupListener {
     private PagerTabStrip pts;
     private ViewPager pager;
     private RapidFloatingActionButtonGroup rfabGroup;

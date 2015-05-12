@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.wangjie.androidinject.annotation.annotations.base.AILayout;
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton;
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout;
 import com.wangjie.rapidfloatingactionbutton.example.R;
@@ -57,6 +57,6 @@ public class FragmentB extends BaseFragment implements OnRapidFloatingButtonSepa
 
     @Override
     public void onRFABClick() {
-        showToastMessage("B RFAB clicked");
+        Toast.makeText(getActivity(), "B RFAB clicked", Toast.LENGTH_SHORT).show();
     }
 }

@@ -3,19 +3,19 @@ package com.wangjie.rapidfloatingactionbutton.example;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
 import com.balysv.materialmenu.MaterialMenuDrawable;
-import com.wangjie.androidinject.annotation.present.AIActionBarActivity;
 import com.wangjie.rapidfloatingactionbutton.example.rfabgroup.RFABGroupSampleActivity;
 
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_PRESSED_DURATION;
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_SCALE;
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_TRANSFORM_DURATION;
 
-public class MainActivity extends AIActionBarActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Toolbar toolbar;
     private MaterialMenuDrawable materialMenu;
 
@@ -56,11 +56,11 @@ public class MainActivity extends AIActionBarActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.activity_main_label_list_sample_btn) {
-            startActivity(new Intent(context, LabelListSampleActivity.class));
+            startActivity(new Intent(this, LabelListSampleActivity.class));
         } else if (v.getId() == R.id.activity_main_separate_rfab_sample_btn) {
-            startActivity(new Intent(context, SeparateRFABSampleActivity.class));
+            startActivity(new Intent(this, SeparateRFABSampleActivity.class));
         } else if (v.getId() == R.id.activity_main_rfab_group_btn) {
-            startActivity(new Intent(context, RFABGroupSampleActivity.class));
+            startActivity(new Intent(this, RFABGroupSampleActivity.class));
         }
     }
 }
