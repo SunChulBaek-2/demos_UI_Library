@@ -7,12 +7,14 @@ import android.widget.Toast;
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton;
 import com.wangjie.rapidfloatingactionbutton.listener.OnRapidFloatingButtonSeparateListener;
 
+import kr.pe.ssun.mylibrary.BaseActivity;
+
 /**
  * Author: wangjie
  * Email: tiantian.china.2@gmail.com
  * Date: 5/4/15.
  */
-public class SeparateRFABSampleActivity extends AppCompatActivity implements OnRapidFloatingButtonSeparateListener {
+public class SeparateRFABSampleActivity extends BaseActivity implements OnRapidFloatingButtonSeparateListener {
     private RapidFloatingActionButton rfab;
 
     @Override

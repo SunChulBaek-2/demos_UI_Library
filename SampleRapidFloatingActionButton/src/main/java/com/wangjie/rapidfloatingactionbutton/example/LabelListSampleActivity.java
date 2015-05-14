@@ -16,12 +16,14 @@ import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RapidFloating
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.pe.ssun.mylibrary.BaseActivity;
+
 /**
  * Author: wangjie
  * Email: tiantian.china.2@gmail.com
  * Date: 5/4/15.
  */
-public class LabelListSampleActivity extends AppCompatActivity implements RapidFloatingActionContentLabelList.OnRapidFloatingActionContentListener {
+public class LabelListSampleActivity extends BaseActivity implements RapidFloatingActionContentLabelList.OnRapidFloatingActionContentListener {
     private RapidFloatingActionLayout rfaLayout;
     private RapidFloatingActionButton rfaButton;
     private RapidFloatingActionHelper rfabHelper;

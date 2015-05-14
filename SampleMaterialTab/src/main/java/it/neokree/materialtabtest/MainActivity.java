@@ -1,7 +1,5 @@
 package it.neokree.materialtabtest;
 
-import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,6 +13,8 @@ import com.balysv.materialmenu.MaterialMenuDrawable;
 
 import java.util.ArrayList;
 
+import kr.pe.ssun.mylibrary.BaseActivity;
+
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_PRESSED_DURATION;
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_SCALE;
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_TRANSFORM_DURATION;
@@ -22,7 +22,7 @@ import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_TRANSFORM_DUR
 /**
  * Created by neokree on 30/12/14.
  */
-public class MainActivity extends Activity implements AdapterView.OnItemClickListener {
+public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener {
     private MaterialMenuDrawable materialMenu;
 
     @Override

@@ -2,14 +2,13 @@ package com.melnykov.fab.sample;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.Fragment;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -35,12 +34,13 @@ import com.melnykov.fab.ScrollDirectionListener;
 import it.neokree.materialtabs.MaterialTab;
 import it.neokree.materialtabs.MaterialTabHost;
 import it.neokree.materialtabs.MaterialTabListener;
+import kr.pe.ssun.mylibrary.BaseActivity;
 
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_PRESSED_DURATION;
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_SCALE;
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_TRANSFORM_DURATION;
 
-public class MainActivity extends AppCompatActivity implements MaterialTabListener {
+public class MainActivity extends BaseActivity implements MaterialTabListener {
     private Toolbar toolbar;
     private MaterialMenuDrawable materialMenu;
     private MaterialTabHost tabHost;
@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements MaterialTabListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fab2);
-        getSupportActionBar().hide();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         tabHost = (MaterialTabHost) findViewById(R.id.tabHost);
@@ -75,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements MaterialTabListen
         toolbar.setTitle("FloatingActionButton2");
         toolbar.setTitleTextColor(Color.WHITE);
 
-        adapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+        adapter = new FragmentPagerAdapter(getFragmentManager()) {
             @Override
             public int getCount() {
                 return 3;

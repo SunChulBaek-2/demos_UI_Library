@@ -19,13 +19,14 @@ import java.util.Collections;
 
 import kr.pe.ssun.demos.adapter.MainListAdapter;
 import kr.pe.ssun.demos.adapter.MainStaggeredGridAdapter;
+import kr.pe.ssun.mylibrary.BaseActivity;
 
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_PRESSED_DURATION;
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_SCALE;
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_TRANSFORM_DURATION;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 	private Toolbar toolbar;
 	private MaterialMenuDrawable materialMenu;
 	private RecyclerView rvLibraries;
@@ -50,9 +51,6 @@ public class MainActivity extends AppCompatActivity {
 			Screen.setCurrent(Screen.valueOf(tag.toUpperCase()));
 		}
 
-		if (getSupportActionBar() != null) {
-			getSupportActionBar().hide();
-		}
 		setupToolbar();
 
 		rvLibraries = (RecyclerView) findViewById(R.id.rvLibraries);

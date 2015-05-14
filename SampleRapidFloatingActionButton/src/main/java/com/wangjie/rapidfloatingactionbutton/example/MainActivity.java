@@ -3,7 +3,6 @@ package com.wangjie.rapidfloatingactionbutton.example;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
@@ -11,11 +10,13 @@ import android.widget.Button;
 import com.balysv.materialmenu.MaterialMenuDrawable;
 import com.wangjie.rapidfloatingactionbutton.example.rfabgroup.RFABGroupSampleActivity;
 
+import kr.pe.ssun.mylibrary.BaseActivity;
+
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_PRESSED_DURATION;
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_SCALE;
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_TRANSFORM_DURATION;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Toolbar toolbar;
     private MaterialMenuDrawable materialMenu;
 
@@ -23,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rapid_floating_action_button);
-        getSupportActionBar().hide();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         Button button1 = (Button) findViewById(R.id.activity_main_separate_rfab_sample_btn);

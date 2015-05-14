@@ -14,11 +14,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
+import kr.pe.ssun.mylibrary.BaseActivity;
+
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_PRESSED_DURATION;
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_SCALE;
 import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_TRANSFORM_DURATION;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
   private MaterialMenuDrawable materialMenu;
 
   @Override
