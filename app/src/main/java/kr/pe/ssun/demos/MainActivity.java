@@ -1,5 +1,6 @@
 package kr.pe.ssun.demos;
 
+import android.app.FragmentManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -27,9 +28,6 @@ import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_TRANSFORM_DUR
 
 
 public class MainActivity extends BaseActivity {
-	private Toolbar toolbar;
-	private MaterialMenuDrawable materialMenu;
-	private RecyclerView rvLibraries;
 
 	private static ArrayList<Library> mLibraries = new ArrayList<>();
 
@@ -41,68 +39,12 @@ public class MainActivity extends BaseActivity {
 	}
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 
-		RelativeLayout view = (RelativeLayout) findViewById(R.id.rlRoot);
-		if(view.getTag() != null) {
-			String tag = (String) view.getTag();
-			Screen.setCurrent(Screen.valueOf(tag.toUpperCase()));
-		}
-
-		setupToolbar();
-
-		rvLibraries = (RecyclerView) findViewById(R.id.rvLibraries);
-		if(Screen.getCurrent().equals(Screen.LARGE_LAND)) {
-			rvLibraries.setLayoutManager(new StaggeredGridLayoutManager(2,
-					StaggeredGridLayoutManager.VERTICAL));
-			rvLibraries.setAdapter(new MainStaggeredGridAdapter());
-		} else {
-			rvLibraries.setLayoutManager(new LinearLayoutManager(this));
-			rvLibraries.setAdapter(new MainListAdapter());
-		}
-	}
-
-	private void setupToolbar() {
-		toolbar = (Toolbar)findViewById(R.id.toolbar);
-		materialMenu = new MaterialMenuDrawable(this,
-				Color.WHITE,
-				MaterialMenuDrawable.Stroke.THIN,
-				DEFAULT_SCALE,
-				DEFAULT_TRANSFORM_DURATION,
-				DEFAULT_PRESSED_DURATION);
-		toolbar.setNavigationIcon(materialMenu);
-		toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-
-			}
-		});
-		toolbar.setTitle(R.string.app_name);
-		toolbar.setTitleTextColor(Color.WHITE);
-	}
-
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.menu_main, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-
-		//noinspection SimplifiableIfStatement
-		if (id == R.id.action_settings) {
-			return true;
-		}
-
-		return super.onOptionsItemSelected(item);
+		FragmentManager fm = getFragmentManager();
+		fm.beginTransaction()
+				.add(R.id.content, new MainFragment())
+				.commit();
 	}
 }
