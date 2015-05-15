@@ -1,5 +1,7 @@
 package kr.pe.ssun.demos;
 
+import com.wangjie.rapidfloatingactionbutton.example.MainActivity;
+
 /**
  * Created by x1210x on 15. 4. 15..
  */
@@ -8,7 +10,7 @@ public enum Library {
   ANDROID_CHIPS("AndroidChips", R.string.desc_android_chips, com.android.ex.chips.sample.MainActivity.class),
   FLOATING_ACTION_BUTTON("FloatingActionButton", R.string.desc_floating_action_button, com.getbase.floatingactionbutton.sample.MainActivity.class),
   FLOATING_ACTION_BUTTON2("FloatingActionButton", R.string.desc_floating_action_button2, com.melnykov.fab.sample.MainActivity.class),
-  RAPID_FLOATING_ACTION_BUTTON("RapidFloatingActionButton", R.string.desc_rapid_floating_action_button, com.wangjie.rapidfloatingactionbutton.example.MainActivity.class);
+  RAPID_FLOATING_ACTION_BUTTON("RapidFloatingActionButton", R.string.desc_rapid_floating_action_button, MainActivity.class);
 
   private String title;
   private int desc;

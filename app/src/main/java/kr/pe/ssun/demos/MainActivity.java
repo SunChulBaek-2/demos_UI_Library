@@ -29,18 +29,11 @@ import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_TRANSFORM_DUR
 
 public class MainActivity extends BaseActivity {
 
-	private static ArrayList<Library> mLibraries = new ArrayList<>();
-
-	static {
-		mLibraries.add(Library.MATERIAL_TAB);
-		mLibraries.add(Library.ANDROID_CHIPS);
-
-		Collections.sort(mLibraries, new LibraryNameComparator());
-	}
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		setToolbarTitle(R.string.app_name);
 
 		FragmentManager fm = getFragmentManager();
 		fm.beginTransaction()

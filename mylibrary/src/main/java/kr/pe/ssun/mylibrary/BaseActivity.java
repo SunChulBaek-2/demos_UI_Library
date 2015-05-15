@@ -21,6 +21,22 @@ import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_TRANSFORM_DUR
  * Created by x1210x on 2015-05-14.
  */
 public class BaseActivity extends Activity {
+	public enum IconState {
+		ARROW(MaterialMenuDrawable.IconState.ARROW),
+		BURGER(MaterialMenuDrawable.IconState.BURGER),
+		CHECK(MaterialMenuDrawable.IconState.CHECK);
+
+		MaterialMenuDrawable.IconState mState;
+
+		IconState(MaterialMenuDrawable.IconState state) {
+			mState = state;
+		}
+
+		public MaterialMenuDrawable.IconState getState() {
+			return mState;
+		}
+	}
+
 	protected AppCompatDelegate mDelegate;
 
 	private android.widget.Toolbar mToolbar;
@@ -41,10 +57,36 @@ public class BaseActivity extends Activity {
 
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 			setupToolbar();
-			mToolbar.setTitle(R.string.app_name);
 		} else {
 			setupSupportToolbar();
-			mSupportToolbar.setTitle(R.string.app_name);
+		}
+	}
+
+	protected void setToolbarTitle(int id) {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			mToolbar.setTitle(id);
+		} else {
+			mSupportToolbar.setTitle(id);
+		}
+	}
+
+	protected void setToolbarTitle(String title) {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			mToolbar.setTitle(title);
+		} else {
+			mSupportToolbar.setTitle(title);
+		}
+	}
+
+	protected void setToolbarIconState(IconState state) {
+		materialMenu.setIconState(state.getState());
+	}
+
+	protected void setNavigationOnClickListener(View.OnClickListener listener) {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			mToolbar.setNavigationOnClickListener(listener);
+		} else {
+			mSupportToolbar.setNavigationOnClickListener(listener);
 		}
 	}
 
@@ -55,15 +97,7 @@ public class BaseActivity extends Activity {
 		}
 
 		mToolbar.setNavigationIcon(materialMenu);
-		mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-
-			}
-		});
 		mToolbar.setTitleTextColor(Color.WHITE);
-
-		setActionBar(mToolbar);
 	}
 
 	private void setupSupportToolbar() {
@@ -72,12 +106,6 @@ public class BaseActivity extends Activity {
 		}
 
 		mSupportToolbar.setNavigationIcon(materialMenu);
-		mSupportToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-
-			}
-		});
 		mSupportToolbar.setTitleTextColor(Color.WHITE);
 	}
 }

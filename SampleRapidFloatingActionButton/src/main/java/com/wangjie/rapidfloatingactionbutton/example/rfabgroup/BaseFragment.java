@@ -1,6 +1,6 @@
 package com.wangjie.rapidfloatingactionbutton.example.rfabgroup;
 
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton;
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout;

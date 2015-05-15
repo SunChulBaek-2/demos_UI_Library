@@ -1,7 +1,9 @@
 package com.wangjie.rapidfloatingactionbutton.example;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Toast;
 
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton;
@@ -14,20 +16,24 @@ import kr.pe.ssun.mylibrary.BaseActivity;
  * Email: tiantian.china.2@gmail.com
  * Date: 5/4/15.
  */
-public class SeparateRFABSampleActivity extends BaseActivity implements OnRapidFloatingButtonSeparateListener {
-    private RapidFloatingActionButton rfab;
+public class SeparateRFABSampleActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.separate_rfab_sample);
 
-        rfab = (RapidFloatingActionButton) findViewById(R.id.separate_rfab_sample_rfab);
-        rfab.setOnRapidFloatingButtonSeparateListener(this);
-    }
+        setToolbarTitle("Separate RFAB Sample");
+        setToolbarIconState(IconState.ARROW);
+        setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
-    @Override
-    public void onRFABClick() {
-        Toast.makeText(this, "RFAB clicked", Toast.LENGTH_SHORT).show();
+        FragmentManager fm = getFragmentManager();
+        fm.beginTransaction()
+                .add(R.id.content, new SeperateRFASampleFragment())
+                .commit();
     }
 }

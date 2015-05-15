@@ -5,7 +5,8 @@ package kr.pe.ssun.demos;
  */
 public enum Screen {
 	NORMAL,
-	LARGE_LAND;
+	LARGE_LAND,
+	LARGE_LAND_V21;
 
 	private static Screen current;
 

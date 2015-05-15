@@ -4,18 +4,10 @@
 				android:layout_width="match_parent"
 				android:layout_height="match_parent">
 
-	<android.support.v7.widget.Toolbar
-		android:id="@+id/toolbar"
-		android:layout_width="match_parent"
-		android:layout_height="?attr/actionBarSize"
-		android:layout_alignParentTop="true"
-		android:background="@android:color/holo_orange_dark"/>
-
 	<it.neokree.materialtabs.MaterialTabHost
 		android:id="@+id/tabHost"
 		android:layout_width="match_parent"
-		android:layout_height="?attr/actionBarSize"
-		android:layout_below="@id/toolbar"
+		android:layout_height="?android:attr/actionBarSize"
 		app:textColor="#ffffff"
 		app:primaryColor="@android:color/holo_blue_dark"
 		app:accentColor="#a6ffffff" />
