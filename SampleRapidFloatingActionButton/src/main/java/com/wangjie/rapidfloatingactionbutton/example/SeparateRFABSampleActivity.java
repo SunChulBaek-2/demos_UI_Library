@@ -2,12 +2,7 @@ package com.wangjie.rapidfloatingactionbutton.example;
 
 import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Toast;
-
-import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton;
-import com.wangjie.rapidfloatingactionbutton.listener.OnRapidFloatingButtonSeparateListener;
 
 import kr.pe.ssun.mylibrary.BaseActivity;
 
@@ -27,7 +22,7 @@ public class SeparateRFABSampleActivity extends BaseActivity {
         setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                finishProperly();
             }
         });
 

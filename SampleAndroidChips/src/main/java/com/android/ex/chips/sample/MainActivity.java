@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setToolbarTitle("Android Chips");
+        setToolbarTitle("AndroidChips");
         setToolbarIconState(IconState.ARROW);
         setNavigationOnClickListener(new View.OnClickListener() {
             @Override

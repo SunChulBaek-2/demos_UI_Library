@@ -6,10 +6,11 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
-import android.support.v7.view.ActionMode;
+import android.transition.Explode;
 import android.view.View;
+import android.view.Window;
+import android.widget.TextView;
 
 import com.balysv.materialmenu.MaterialMenuDrawable;
 
@@ -46,10 +47,17 @@ public class BaseActivity extends Activity {
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+			getWindow().setEnterTransition(new Explode());
+			getWindow().setExitTransition(new Explode());
+		}
+
 		setContentView(R.layout.activity_base);
 
 		materialMenu = new MaterialMenuDrawable(this,
-				Color.WHITE,
+				Color.DKGRAY,
 				MaterialMenuDrawable.Stroke.THIN,
 				DEFAULT_SCALE,
 				DEFAULT_TRANSFORM_DURATION,
@@ -65,6 +73,7 @@ public class BaseActivity extends Activity {
 	protected void setToolbarTitle(int id) {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 			mToolbar.setTitle(id);
+			setToolbarTransitionName();
 		} else {
 			mSupportToolbar.setTitle(id);
 		}
@@ -73,8 +82,19 @@ public class BaseActivity extends Activity {
 	protected void setToolbarTitle(String title) {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 			mToolbar.setTitle(title);
+			setToolbarTransitionName();
 		} else {
 			mSupportToolbar.setTitle(title);
+		}
+	}
+
+	@TargetApi(21)
+	private void setToolbarTransitionName() {
+		for (int i=0; i< mToolbar.getChildCount(); i++) {
+			View child = mToolbar.getChildAt(i);
+			if (child instanceof TextView) {
+				child.setTransitionName("title");
+			}
 		}
 	}
 
@@ -97,7 +117,7 @@ public class BaseActivity extends Activity {
 		}
 
 		mToolbar.setNavigationIcon(materialMenu);
-		mToolbar.setTitleTextColor(Color.WHITE);
+		mToolbar.setTitleTextColor(Color.DKGRAY);
 	}
 
 	private void setupSupportToolbar() {
@@ -107,5 +127,13 @@ public class BaseActivity extends Activity {
 
 		mSupportToolbar.setNavigationIcon(materialMenu);
 		mSupportToolbar.setTitleTextColor(Color.WHITE);
+	}
+
+	public void finishProperly() {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			finishAfterTransition();
+		} else {
+			finish();
+		}
 	}
 }

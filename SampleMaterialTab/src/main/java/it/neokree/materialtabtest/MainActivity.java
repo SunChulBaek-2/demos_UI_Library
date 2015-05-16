@@ -15,12 +15,12 @@ public class MainActivity extends BaseActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setToolbarTitle("Material Tab");
+        setToolbarTitle("MaterialTab");
         setToolbarIconState(IconState.ARROW);
         setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                finishProperly();
             }
         });
 

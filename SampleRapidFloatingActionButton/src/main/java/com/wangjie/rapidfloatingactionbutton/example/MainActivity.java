@@ -17,7 +17,7 @@ public class MainActivity extends BaseActivity {
         setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                finishProperly();
             }
         });
 
