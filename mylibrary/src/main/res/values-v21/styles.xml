@@ -53,7 +53,6 @@
 		<item name="android:colorPrimary">@color/blue500</item>
 		<item name="android:textColorPrimary">@color/lightTextPrimary</item>
 		<item name="android:colorPrimaryDark">@color/blue700</item>
-		<item name="android:colorAccent">@color/redA200</item>
 		<item name="android:navigationBarColor">@android:color/black</item>
 	</style>
 
