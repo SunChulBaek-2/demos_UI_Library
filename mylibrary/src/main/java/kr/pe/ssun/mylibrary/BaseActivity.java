@@ -2,6 +2,7 @@ package kr.pe.ssun.mylibrary;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -46,13 +47,11 @@ public class BaseActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_base);
 
-		int color = 0;
+		int color = Color.BLACK;
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 			TypedValue a = new TypedValue();
 			getTheme().resolveAttribute(android.R.attr.textColorPrimary, a, true);
 			color = a.data;
-		} else {
-			color = getResources().getColor(R.color.darkTextPrimary);
 		}
 
 		materialMenu = new MaterialMenuDrawable(this,
@@ -112,7 +111,6 @@ public class BaseActivity extends Activity {
 		}
 
 		mSupportToolbar.setNavigationIcon(materialMenu);
-		mSupportToolbar.setTitleTextColor(getResources().getColor(R.color.darkTextPrimary));
 	}
 
 	public void finishProperly() {
