@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<style name="AppTheme" parent="AmberColorAppTheme"/>
+	<style name="AppTheme" parent="RedColorAppTheme"/>
 
 	<style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
 
@@ -26,7 +26,7 @@
 
 	<style name="IndigoColorAppTheme" parent="BaseAppTheme">
 		<item name="colorPrimary">@color/indigo500</item>
-		<item name="android:colorAccent">@color/pinkA200</item>
+		<item name="colorPrimaryDark">@color/indigo700</item>
 	</style>
 
 	<style name="BlueColorAppTheme" parent="BaseAppTheme">
