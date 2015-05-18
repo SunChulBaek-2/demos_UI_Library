@@ -41,7 +41,7 @@ public class MainListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 				Context context = itemView.getContext();
 				Intent i = new Intent(context, Library.values()[position].getClazz());
 				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-					context.startActivity(i, ActivityOptions.makeSceneTransitionAnimation((Activity) context, actvTitle, "title").toBundle());
+					context.startActivity(i, ActivityOptions.makeSceneTransitionAnimation((Activity) context, null).toBundle());
 				} else {
 					context.startActivity(i);
 				}
