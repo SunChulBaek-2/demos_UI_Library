@@ -2,15 +2,12 @@ package kr.pe.ssun.mylibrary;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDelegate;
-import android.transition.Explode;
+import android.util.TypedValue;
 import android.view.View;
-import android.view.Window;
-import android.widget.TextView;
 
 import com.balysv.materialmenu.MaterialMenuDrawable;
 
@@ -49,8 +46,17 @@ public class BaseActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_base);
 
+		int color = 0;
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+			TypedValue a = new TypedValue();
+			getTheme().resolveAttribute(android.R.attr.textColorPrimary, a, true);
+			color = a.data;
+		} else {
+			color = getResources().getColor(R.color.darkTextPrimary);
+		}
+
 		materialMenu = new MaterialMenuDrawable(this,
-				getResources().getColor(R.color.text_toolbar),
+				color,
 				MaterialMenuDrawable.Stroke.THIN,
 				DEFAULT_SCALE,
 				DEFAULT_TRANSFORM_DURATION,
@@ -98,7 +104,6 @@ public class BaseActivity extends Activity {
 		}
 
 		mToolbar.setNavigationIcon(materialMenu);
-		mToolbar.setTitleTextColor(getResources().getColor(R.color.text_toolbar));
 	}
 
 	private void setupSupportToolbar() {
@@ -107,7 +112,7 @@ public class BaseActivity extends Activity {
 		}
 
 		mSupportToolbar.setNavigationIcon(materialMenu);
-		mSupportToolbar.setTitleTextColor(getResources().getColor(R.color.text_toolbar));
+		mSupportToolbar.setTitleTextColor(getResources().getColor(R.color.darkTextPrimary));
 	}
 
 	public void finishProperly() {

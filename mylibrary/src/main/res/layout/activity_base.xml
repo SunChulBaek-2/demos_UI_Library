@@ -7,7 +7,7 @@
 		android:id="@+id/toolbar"
 		android:layout_width="match_parent"
 		android:layout_height="?android:attr/actionBarSize"
-		android:background="@color/bg_toolbar"/>
+		android:background="?attr/colorPrimary"/>
 
 	<RelativeLayout
 		android:id="@+id/content"
