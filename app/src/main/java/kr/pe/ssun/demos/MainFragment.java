@@ -10,8 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import kr.pe.ssun.demos.adapter.MainListAdapter;
-import kr.pe.ssun.demos.adapter.MainStaggeredGridAdapter;
+import kr.pe.ssun.demos.adapter.MainAdapter;
 
 /**
  * Created by x1210x on 15. 5. 15..
@@ -33,10 +32,10 @@ public class MainFragment extends Fragment {
 		if(Screen.getCurrent().equals(Screen.LARGE_LAND)) {
 			rvLibraries.setLayoutManager(new StaggeredGridLayoutManager(2,
 					StaggeredGridLayoutManager.VERTICAL));
-			rvLibraries.setAdapter(new MainStaggeredGridAdapter());
+			rvLibraries.setAdapter(new MainAdapter());
 		} else {
 			rvLibraries.setLayoutManager(new LinearLayoutManager(getActivity()));
-			rvLibraries.setAdapter(new MainListAdapter());
+			rvLibraries.setAdapter(new MainAdapter());
 		}
 		return view;
 	}
