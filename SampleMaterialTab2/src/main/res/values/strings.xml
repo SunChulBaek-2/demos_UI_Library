@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MaterialTabs</string>
+    <string name="title_activity_main">Cook Your Tabs</string>
+
+    <string name="underline_height">Underline Height</string>
+    <string name="indicator_height">Indicator Height</string>
+    <string name="tab_padding">Tab Padding Left Right</string>
+    <string name="same_weight_tabs">Same Weight Tabs</string>
+    <string name="underline_color">Underline Color</string>
+    <string name="indicator_color">Indicator Color</string>
+    <string name="text_all_caps">Text All Caps</string>
+    <string name="padding_middle">Padding Middle</string>
+    <string name="tab_text_color">Tab Text Unselected Color</string>
+    <string name="tab_text_selected_color">Tab Text Selected Color</string>
+    <string name="tab_background_color">Tab Bar Background Color</string>
+    <string name="text_selected_style">Selected Text Style</string>
+    <string name="text_unselected_style">Unselected Text Style</string>
+    <string name="ripple_duration">Ripple Duration</string>
+    <string name="ripple_alpha_float">Ripple Alpha Float</string>
+    <string name="ripple_color">Ripple Color</string>
+    <string name="ripple_delay_click">Ripple Delay Click</string>
+    <string name="ripple_diameter">Ripple Diameter</string>
+    <string name="ripple_fade_duration">Ripple Fade Duration</string>
+    <string name="ripple_highlight_color">Ripple Highlight Color</string>
+    <string name="ripple_overlay">Ripple Overlay</string>
+    <string name="ripple_persistent">Ripple Persistent</string>
+    <string name="ripple_rounded_corners_radius">Ripple Rounded Corners Radius</string>
+    <string name="me">Me</string>
+    <string name="go">Go</string>
+    <string name="normal">Normal</string>
+    <string name="bold">Bold</string>
+    <string name="italic">Italic</string>
+    <string name="share">Share</string>
+    <string name="reset">Reset</string>
+    <string name="toolbar_color">Toolbar (ActionBar) Color</string>
+
+    <string name="ripple_alpha_float_details">Level of transparency (alpha) of the ripple</string>
+    <string name="ripple_color_details">Color of the ripple</string>
+    <string name="ripple_diameter_details">Radius of starting ripple</string>
+    <string name="ripple_duration_details">Duration of the ripple animation</string>
+    <string name="ripple_delay_click_details">If true, delays calls to OnClickListeners until ripple effect ends. In that case, the indicator line\'s
+        move to the clicked tab will also be delayed
+    </string>
+    <string name="ripple_fade_duration_details">Duration of fade out effect on ripple</string>
+    <string name="ripple_overlay_details">If true, ripple is drawn in foreground of view. Otherwise, it will drawn in the background</string>
+    <string name="ripple_persistent_details">If true, the ripple background color persists after animation, until setRadius(0) is called</string>
+    <string name="ripple_highlight_color_details">Color of the background while the ripple is undergoing an animation</string>
+    <string name="ripple_rounded_corners_radius_details">Radius of corners of the ripple. Note: it uses software rendering pipeline for API 17 and
+        below
+    </string>
+
+    <string name="same_weight_tabs_details">If set to true, each tab is given the same weight</string>
+    <string name="padding_middle_details">If true, the tabs start at the middle of the view</string>
+    <string name="indicator_height_details">Height of the sliding indicator</string>
+    <string name="indicator_color_details">Color of the sliding indicator</string>
+    <string name="underline_height_details">Height of the full-width line on the bottom of the view</string>
+    <string name="underline_color_details">Color of the full-width line on the bottom of the view</string>
+    <string name="text_all_caps_details">If true, all tab titles will be upper case</string>
+    <string name="text_unselected_style_details">Style of text in unselected tab</string>
+    <string name="text_selected_style_details">Style of text in selected tab</string>
+    <string name="tab_padding_details">Left and right padding of each tab</string>
+    <string name="tab_text_selected_color_details">Color of text in selected tab</string>
+    <string name="tab_text_color_details">Color of text in non-selected tabs</string>
+    <string name="toolbar_color_details">Color of toolbar in the next Activity</string>
+    <string name="tab_background_color_details">Background color of tab bar</string>
+    <string name="github">pizza</string>
+    <string name="twitter">\@KarimFrenn</string>
+    <string name="karim_frenn">Karim Frenn</string>
+    <string name="github_link">http://github.com/pizza</string>
+    <string name="twitter_link">http://twitter.com/karimfrenn</string>
+    <string name="show_toolbar">Show Toolbar</string>
+    <string name="show_toolbar_details">Show/hide toolbar in next Activity</string>
+    <string name="number_of_tabs">Number of Tabs</string>
+    <string name="send_to">Send to</string>
+    <string name="number_of_tabs_details">The number of tabs to be shown in next Activity</string>
+</resources>

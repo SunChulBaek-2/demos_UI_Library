@@ -1,1 +1,1 @@
-include ':app', ':SampleAndroidChips', ':SampleFloatingActionButton', ':SampleMaterialTab', ':SampleFloatingActionButton2', ':LibraryRapidFloatingActionButton', ':SampleRapidFloatingActionButton', ':mylibrary'
+include ':app', ':SampleAndroidChips', ':SampleFloatingActionButton', ':SampleMaterialTab', ':SampleFloatingActionButton2', ':LibraryRapidFloatingActionButton', ':SampleRapidFloatingActionButton', ':SampleMaterialTab2', ':mylibrary'

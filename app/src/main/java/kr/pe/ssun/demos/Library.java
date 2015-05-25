@@ -7,6 +7,7 @@ import com.wangjie.rapidfloatingactionbutton.example.MainActivity;
  */
 public enum Library {
   MATERIAL_TAB("MaterialTab", Category.MATERIAL, R.string.desc_material_tabs, R.string.desc_material_tabs, it.neokree.materialtabtest.MainActivity.class),
+  MATERIAL_TAB2("MaterialTab", Category.MATERIAL, R.string.desc_material_tabs2, R.string.desc_material_tabs2, io.karim.materialtabs.sample.MainActivity.class),
   ANDROID_CHIPS("AndroidChips", Category.MATERIAL, R.string.desc_android_chips, R.string.desc_android_chips, com.android.ex.chips.sample.MainActivity.class),
   FLOATING_ACTION_BUTTON("FloatingActionButton", Category.MATERIAL, R.string.desc_floating_action_button, R.string.desc_floating_action_button, com.getbase.floatingactionbutton.sample.MainActivity.class),
   FLOATING_ACTION_BUTTON2("FloatingActionButton", Category.MATERIAL, R.string.desc_floating_action_button2, R.string.desc_floating_action_button2, com.melnykov.fab.sample.MainActivity.class),

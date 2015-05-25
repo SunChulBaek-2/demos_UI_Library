@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- Translucent Window only on KitKat -->
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+</resources>
