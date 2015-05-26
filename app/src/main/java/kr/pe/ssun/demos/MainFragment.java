@@ -30,7 +30,7 @@ public class MainFragment extends Fragment {
 
 		rvLibraries = (RecyclerView) view.findViewById(R.id.rvLibraries);
 		if(Screen.getCurrent().equals(Screen.LARGE_LAND)) {
-			rvLibraries.setLayoutManager(new StaggeredGridLayoutManager(2,
+			rvLibraries.setLayoutManager(new StaggeredGridLayoutManager(3,
 					StaggeredGridLayoutManager.VERTICAL));
 			rvLibraries.setAdapter(new MainAdapter());
 		} else {
