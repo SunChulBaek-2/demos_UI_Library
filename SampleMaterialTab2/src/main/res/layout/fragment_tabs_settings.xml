@@ -48,14 +48,16 @@
 
         <View android:layout_width="match_parent"
             android:layout_height="2px"
-            android:background="@color/light_gray_half_transparent" />
+            android:background="@color/light_gray_half_transparent"
+            android:visibility="gone"/>
 
         <!-- Show Toolbar -->
         <RelativeLayout android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:visibility="gone">
 
             <ImageView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -89,13 +91,15 @@
 
         <View android:layout_width="match_parent"
             android:layout_height="2px"
-            android:background="@color/light_gray_half_transparent" />
+            android:background="@color/light_gray_half_transparent"
+            android:visibility="gone"/>
 
         <!-- Toolbar (Action Bar) Color -->
         <LinearLayout android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <RelativeLayout android:layout_width="match_parent"
                 android:layout_height="wrap_content"

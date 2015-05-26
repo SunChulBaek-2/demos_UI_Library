@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDelegate;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.Toolbar;
 
 import com.balysv.materialmenu.MaterialMenuDrawable;
 
@@ -82,6 +83,17 @@ public class BaseActivity extends Activity {
 		} else {
 			mSupportToolbar.setTitle(title);
 		}
+	}
+
+	@TargetApi(21)
+	protected void setMenu(int resId, android.widget.Toolbar.OnMenuItemClickListener listener) {
+		mToolbar.inflateMenu(resId);
+		mToolbar.setOnMenuItemClickListener(listener);
+	}
+
+	protected void setSupportMenu(int resId, android.support.v7.widget.Toolbar.OnMenuItemClickListener listener) {
+		mSupportToolbar.inflateMenu(resId);
+		mSupportToolbar.setOnMenuItemClickListener(listener);
 	}
 
 	protected void setToolbarIconState(IconState state) {

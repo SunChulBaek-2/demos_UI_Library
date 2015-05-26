@@ -29,7 +29,6 @@ import io.karim.Utils;
  * Created by x1210x on 15. 5. 26..
  */
 public class TabsFragment extends Fragment {
-	Toolbar mToolbar;
 	MaterialTabs mMaterialTabs;
 	ViewPager mViewPager;
 
@@ -78,8 +77,6 @@ public class TabsFragment extends Fragment {
 				int underlineHeightDp = extras.getInt(TabsSettingsFragment.UNDERLINE_HEIGHT);
 				int tabPaddingDp = extras.getInt(TabsSettingsFragment.TAB_PADDING);
 
-				mToolbar.setVisibility(showToolbar);
-
 				mMaterialTabs.setIndicatorColor(indicatorColor);
 				mMaterialTabs.setUnderlineColor(underlineColor);
 				mMaterialTabs.setIndicatorHeight(Utils.dpToPx(resources, indicatorHeightDp));
@@ -96,16 +93,15 @@ public class TabsFragment extends Fragment {
 
 				int toolbarColor = resources.getColor(extras.getInt(TabsSettingsFragment.TOOLBAR_BACKGROUND));
 				int tabBackgroundColor = resources.getColor(extras.getInt(TabsSettingsFragment.TAB_BACKGROUND));
-				mToolbar.setBackgroundColor(toolbarColor);
 				mMaterialTabs.setBackgroundColor(tabBackgroundColor);
 
-				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-					Window window = getActivity().getWindow();
-					window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-					window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-					window.setStatusBarColor(Color.argb(Color.alpha(toolbarColor), Color.red(toolbarColor) / 2, Color.green(toolbarColor) / 2,
-							Color.blue(toolbarColor) / 2));
-				}
+//				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//					Window window = getActivity().getWindow();
+//					window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//					window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//					window.setStatusBarColor(Color.argb(Color.alpha(toolbarColor), Color.red(toolbarColor) / 2, Color.green(toolbarColor) / 2,
+//							Color.blue(toolbarColor) / 2));
+//				}
 
 				int textColorSelected = resources.getColor(extras.getInt(TabsSettingsFragment.TEXT_COLOR_SELECTED));
 				int textColorUnselected = resources.getColor(extras.getInt(TabsSettingsFragment.TEXT_COLOR_UNSELECTED));

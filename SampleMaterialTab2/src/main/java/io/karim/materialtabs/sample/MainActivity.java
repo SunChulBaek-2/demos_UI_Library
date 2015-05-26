@@ -7,6 +7,7 @@ import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,7 +18,8 @@ import java.util.ArrayList;
 import kr.pe.ssun.mylibrary.BaseActivity;
 
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity
+        implements android.widget.Toolbar.OnMenuItemClickListener, android.support.v7.widget.Toolbar.OnMenuItemClickListener {
     /**
      * Holds references to fragments from the time they are attached to Activity until they are dettached.
      */
@@ -33,6 +35,11 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         setToolbarTitle("MaterialTab");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            setMenu(R.menu.menu_main, this);
+        } else {
+            setSupportMenu(R.menu.menu_main, this);
+        }
         setToolbarIconState(IconState.ARROW);
         setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,14 +81,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onMenuItemClick(MenuItem item) {
         // Handle action bar item clicks here. The action bar will automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         if (item.getItemId() == R.id.action_me) {
@@ -111,10 +111,6 @@ public class MainActivity extends BaseActivity {
             return true;
         }
 
-        return super.onOptionsItemSelected(item);
+        return false;
     }
-
-
-
-
 }
