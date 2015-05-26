@@ -12,6 +12,7 @@
 		android:layout_height="wrap_content"
 		android:text="separate rfab sample"
 		android:textAllCaps="false"
+		android:textColor="@color/darkTextPrimary"
 		/>
 
 	<Button
@@ -20,6 +21,7 @@
 		android:layout_height="wrap_content"
 		android:text="label list sample"
 		android:textAllCaps="false"
+		android:textColor="@color/darkTextPrimary"
 		/>
 
 	<Button
@@ -28,6 +30,7 @@
 		android:layout_height="wrap_content"
 		android:text="rfab group sample"
 		android:textAllCaps="false"
+		android:textColor="@color/darkTextPrimary"
 		/>
 
 

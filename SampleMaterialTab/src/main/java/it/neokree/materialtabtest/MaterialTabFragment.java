@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -29,7 +30,17 @@ public class MaterialTabFragment extends Fragment implements AdapterView.OnItemC
 		list.add("Icon Tab");
 		list.add("Swipable Icon Tab (more than 5)");
 
-		lvListView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list));
+		lvListView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list){
+			@Override
+			public View getView (int position, View convertView, ViewGroup parent) {
+				View view = super.getView(position, convertView, parent);
+
+				TextView tv = (TextView) view.findViewById(android.R.id.text1);
+				tv.setTextColor(parent.getContext().getResources().getColor(R.color.darkTextPrimary));
+
+				return view;
+			}
+		});
 		lvListView.setOnItemClickListener(this);
 		return view;
 	}
