@@ -1,15 +1,11 @@
 package io.karim.materialtabs.sample;
 
-import com.readystatesoftware.systembartint.SystemBarTintManager;
-
 import android.app.AlertDialog;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -35,11 +31,7 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
 
         setToolbarTitle("MaterialTab");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            setMenu(R.menu.menu_main, this);
-        } else {
-            setSupportMenu(R.menu.menu_main, this);
-        }
+        setMenu(R.menu.menu_main, this);
         setToolbarIconState(IconState.ARROW);
         setNavigationOnClickListener(new View.OnClickListener() {
             @Override

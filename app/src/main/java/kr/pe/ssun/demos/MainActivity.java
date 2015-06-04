@@ -1,22 +1,26 @@
 package kr.pe.ssun.demos;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.FragmentManager;
-import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
-import android.view.MenuItem;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
-import android.widget.Toolbar;
 
-public class MainActivity extends Activity implements OnClickListener {
+import kr.pe.ssun.demos.adapter.MainAdapter;
+
+public class MainActivity extends Activity {
 	private DrawerLayout mDrawer;
 	private RelativeLayout mRlDrawer;
-	private android.widget.Toolbar mToolbar;
-	private android.support.v7.widget.Toolbar mSupportToolbar;
+	private NavigationView mNavView;
+	private Toolbar mToolbar;
+	private RecyclerView rvLibraries;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -25,31 +29,47 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		mDrawer = (DrawerLayout)findViewById(R.id.drawer);
 		mRlDrawer = (RelativeLayout)findViewById(R.id.rlDrawer);
+		mNavView = (NavigationView)findViewById(R.id.navigation);
+		mToolbar = (Toolbar) findViewById(R.id.toolbar);
+		rvLibraries = (RecyclerView) findViewById(R.id.rvLibraries);
 
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-			mToolbar = (android.widget.Toolbar) findViewById(R.id.toolbar);
-			mToolbar.setNavigationIcon(R.drawable.ic_action_navigation_menu);
-			mToolbar.setNavigationOnClickListener(this);
-			mToolbar.setTitle(R.string.app_name);
-		} else {
-			mSupportToolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
-			mSupportToolbar.setNavigationIcon(R.drawable.ic_action_navigation_menu);
-			mSupportToolbar.setNavigationOnClickListener(this);
-			mSupportToolbar.setTitle(R.string.app_name);
+		mNavView.inflateHeaderView(R.layout.header_navigation_view);
+
+		mToolbar.setNavigationIcon(R.drawable.ic_action_navigation_menu);
+		mToolbar.setNavigationOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (mDrawer.isDrawerOpen(mRlDrawer)) {
+					mDrawer.closeDrawer(mRlDrawer);
+				} else {
+					mDrawer.openDrawer(mRlDrawer);
+				}
+			}
+		});
+		mToolbar.setTitle(R.string.app_name);
+		mToolbar.setTitleTextColor(getResources().getColor(R.color.lightTextPrimary));
+
+		if(rvLibraries.getTag() != null) {
+			String tag = (String) rvLibraries.getTag();
+			Screen.setCurrent(Screen.valueOf(tag.toUpperCase()));
 		}
 
-		FragmentManager fm = getFragmentManager();
-		fm.beginTransaction()
-				.add(R.id.content, new MainFragment())
-				.commit();
+		if(Screen.getCurrent().equals(Screen.LARGE_LAND)) {
+			rvLibraries.setLayoutManager(new StaggeredGridLayoutManager(3,
+					StaggeredGridLayoutManager.VERTICAL));
+			rvLibraries.setAdapter(new MainAdapter());
+		} else {
+			rvLibraries.setLayoutManager(new LinearLayoutManager(this));
+			rvLibraries.setAdapter(new MainAdapter());
+		}
 	}
 
 	@Override
-	public void onClick(View v) {
+	public void onBackPressed() {
 		if (mDrawer.isDrawerOpen(mRlDrawer)) {
 			mDrawer.closeDrawer(mRlDrawer);
 		} else {
-			mDrawer.openDrawer(mRlDrawer);
+			finish();
 		}
 	}
 }

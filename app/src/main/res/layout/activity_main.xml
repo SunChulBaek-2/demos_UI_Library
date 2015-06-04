@@ -2,43 +2,45 @@
 <android.support.v4.widget.DrawerLayout
 	android:id="@+id/drawer"
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
-	<LinearLayout
+
+	<android.support.design.widget.CoordinatorLayout
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:orientation="vertical">
+		android:background="#eee">
 
-		<android.support.v7.widget.Toolbar
-			android:id="@+id/toolbar"
+		<include
+			layout="@layout/fragment_main"
 			android:layout_width="match_parent"
-			android:layout_height="?attr/actionBarSize"
-			android:background="?attr/colorPrimary"/>
+			android:layout_height="match_parent"
+			app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-		<RelativeLayout
-			android:id="@+id/content"
+		<android.support.design.widget.AppBarLayout
 			android:layout_width="match_parent"
-			android:layout_height="0dp"
-			android:layout_weight="1"/>
-	</LinearLayout>
+			android:layout_height="wrap_content">
+
+			<android.support.v7.widget.Toolbar
+				android:id="@+id/toolbar"
+				android:layout_width="match_parent"
+				android:layout_height="?attr/actionBarSize"
+				app:layout_scrollFlags="scroll|enterAlways"/>
+
+		</android.support.design.widget.AppBarLayout>
+	</android.support.design.widget.CoordinatorLayout>
 
 	<RelativeLayout
 		android:id="@+id/rlDrawer"
 		android:layout_width="320dp"
 		android:layout_height="match_parent"
-		android:layout_gravity="left"
-		android:background="@android:color/background_light">
+		android:layout_gravity="left">
 
-		<RelativeLayout
-			android:id="@+id/list"
+		<android.support.design.widget.NavigationView
+			android:id="@+id/navigation"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:layout_alignParentBottom="true">
-			<include
-				layout="@layout/header_navigation_view"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"/>
-		</RelativeLayout>
+			app:menu="@menu/menu_act_main"/>
 
 		<View
 			android:layout_width="1dp"

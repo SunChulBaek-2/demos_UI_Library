@@ -1,15 +1,14 @@
 package kr.pe.ssun.mylibrary;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.Toolbar;
 
 import com.balysv.materialmenu.MaterialMenuDrawable;
 
@@ -39,8 +38,7 @@ public class BaseActivity extends Activity {
 
 	protected AppCompatDelegate mDelegate;
 
-	private android.widget.Toolbar mToolbar;
-	private android.support.v7.widget.Toolbar mSupportToolbar;
+	private Toolbar mToolbar;
 	private MaterialMenuDrawable materialMenu;
 
 	@Override
@@ -48,52 +46,27 @@ public class BaseActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_base);
 
-		int color = Color.BLACK;
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-			TypedValue a = new TypedValue();
-			getTheme().resolveAttribute(android.R.attr.textColorPrimary, a, true);
-			color = a.data;
-		}
-
 		materialMenu = new MaterialMenuDrawable(this,
-				color,
+				getResources().getColor(R.color.lightTextPrimary),
 				MaterialMenuDrawable.Stroke.THIN,
 				DEFAULT_SCALE,
 				DEFAULT_TRANSFORM_DURATION,
 				DEFAULT_PRESSED_DURATION);
 
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-			setupToolbar();
-		} else {
-			setupSupportToolbar();
-		}
+		setupSupportToolbar();
 	}
 
 	protected void setToolbarTitle(int id) {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-			mToolbar.setTitle(id);
-		} else {
-			mSupportToolbar.setTitle(id);
-		}
+		mToolbar.setTitle(id);
 	}
 
 	protected void setToolbarTitle(String title) {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-			mToolbar.setTitle(title);
-		} else {
-			mSupportToolbar.setTitle(title);
-		}
+		mToolbar.setTitle(title);
 	}
 
-	@TargetApi(21)
-	protected void setMenu(int resId, android.widget.Toolbar.OnMenuItemClickListener listener) {
+	protected void setMenu(int resId, Toolbar.OnMenuItemClickListener listener) {
 		mToolbar.inflateMenu(resId);
 		mToolbar.setOnMenuItemClickListener(listener);
-	}
-
-	protected void setSupportMenu(int resId, android.support.v7.widget.Toolbar.OnMenuItemClickListener listener) {
-		mSupportToolbar.inflateMenu(resId);
-		mSupportToolbar.setOnMenuItemClickListener(listener);
 	}
 
 	protected void setToolbarIconState(IconState state) {
@@ -101,28 +74,16 @@ public class BaseActivity extends Activity {
 	}
 
 	protected void setNavigationOnClickListener(View.OnClickListener listener) {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-			mToolbar.setNavigationOnClickListener(listener);
-		} else {
-			mSupportToolbar.setNavigationOnClickListener(listener);
-		}
-	}
-
-	@TargetApi(21)
-	private void setupToolbar() {
-		if (mToolbar == null) {
-			mToolbar = (android.widget.Toolbar) findViewById(R.id.toolbar);
-		}
-
-		mToolbar.setNavigationIcon(materialMenu);
+		mToolbar.setNavigationOnClickListener(listener);
 	}
 
 	private void setupSupportToolbar() {
-		if (mSupportToolbar == null) {
-			mSupportToolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+		if (mToolbar == null) {
+			mToolbar = (Toolbar) findViewById(R.id.toolbar);
 		}
 
-		mSupportToolbar.setNavigationIcon(materialMenu);
+		mToolbar.setTitleTextColor(getResources().getColor(R.color.lightTextPrimary));
+		mToolbar.setNavigationIcon(materialMenu);
 	}
 
 	public void finishProperly() {
