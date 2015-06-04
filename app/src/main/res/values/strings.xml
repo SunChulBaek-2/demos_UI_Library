@@ -1,14 +1,11 @@
 <resources>
-    <string name="app_name">Android UI Demos</string>
+    <string name="app_name" translatable="false">Android UI Demos</string>
     <string name="my_name">Sunchul Baek</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="desc_android_chips">https://github.com/klinker41/android-chips</string>
-    <string name="desc_material_tabs">https://github.com/neokree/MaterialTabs</string>
-    <string name="desc_material_tabs2">https://github.com/pizza/MaterialTabs</string>
-    <string name="desc_floating_action_button">https://github.com/futuresimple/android-floating-action-button</string>
-    <string name="desc_floating_action_button2">https://github.com/makovkastar/FloatingActionButton</string>
-    <string name="desc_rapid_floating_action_button">https://github.com/wangjiegulu/RapidFloatingActionButton</string>
+    <string name="desc_android_chips" translatable="false">https://github.com/klinker41/android-chips</string>
+    <string name="desc_material_tabs" translatable="false">https://github.com/neokree/MaterialTabs</string>
+    <string name="desc_material_tabs2" translatable="false">https://github.com/pizza/MaterialTabs</string>
+    <string name="desc_floating_action_button" translatable="false">https://github.com/futuresimple/android-floating-action-button</string>
+    <string name="desc_floating_action_button2" translatable="false">https://github.com/makovkastar/FloatingActionButton</string>
+    <string name="desc_rapid_floating_action_button" translatable="false">https://github.com/wangjiegulu/RapidFloatingActionButton</string>
 </resources>
