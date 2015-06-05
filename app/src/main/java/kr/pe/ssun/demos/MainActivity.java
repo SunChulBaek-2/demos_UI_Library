@@ -17,7 +17,6 @@ import kr.pe.ssun.demos.adapter.MainAdapter;
 
 public class MainActivity extends Activity {
 	private DrawerLayout mDrawer;
-	private RelativeLayout mRlDrawer;
 	private NavigationView mNavView;
 	private Toolbar mToolbar;
 	private RecyclerView rvLibraries;
@@ -28,7 +27,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		mDrawer = (DrawerLayout)findViewById(R.id.drawer);
-		mRlDrawer = (RelativeLayout)findViewById(R.id.rlDrawer);
 		mNavView = (NavigationView)findViewById(R.id.navigation);
 		mToolbar = (Toolbar) findViewById(R.id.toolbar);
 		rvLibraries = (RecyclerView) findViewById(R.id.rvLibraries);
@@ -39,10 +37,10 @@ public class MainActivity extends Activity {
 		mToolbar.setNavigationOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (mDrawer.isDrawerOpen(mRlDrawer)) {
-					mDrawer.closeDrawer(mRlDrawer);
+				if (mDrawer.isDrawerOpen(mNavView)) {
+					mDrawer.closeDrawer(mNavView);
 				} else {
-					mDrawer.openDrawer(mRlDrawer);
+					mDrawer.openDrawer(mNavView);
 				}
 			}
 		});
@@ -66,8 +64,8 @@ public class MainActivity extends Activity {
 
 	@Override
 	public void onBackPressed() {
-		if (mDrawer.isDrawerOpen(mRlDrawer)) {
-			mDrawer.closeDrawer(mRlDrawer);
+		if (mDrawer.isDrawerOpen(mNavView)) {
+			mDrawer.closeDrawer(mNavView);
 		} else {
 			finish();
 		}
