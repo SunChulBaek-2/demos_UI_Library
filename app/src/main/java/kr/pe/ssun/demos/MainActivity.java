@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -21,6 +22,7 @@ public class MainActivity extends Activity {
 	private static final int ID_ALL = 999;
 
 	private DrawerLayout mDrawer;
+	private ActionBarDrawerToggle mToggle;
 	private NavigationView mNavView;
 	private Toolbar mToolbar;
 	private RecyclerView rvLibraries;
@@ -42,20 +44,12 @@ public class MainActivity extends Activity {
 			mSelectedIndex = savedInstanceState.getInt("navSelectedIndex", 0);
 		}
 
+		mToggle = new ActionBarDrawerToggle(this, mDrawer, mToolbar, 0, 0);
+		mDrawer.setDrawerListener(mToggle);
+
 		mNavView.inflateHeaderView(R.layout.header_navigation_view);
 		initNavMenu();
 
-		mToolbar.setNavigationIcon(R.drawable.ic_action_navigation_menu);
-		mToolbar.setNavigationOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if (mDrawer.isDrawerOpen(mNavView)) {
-					mDrawer.closeDrawer(mNavView);
-				} else {
-					mDrawer.openDrawer(mNavView);
-				}
-			}
-		});
 		mToolbar.setTitle(R.string.app_name);
 		mToolbar.setTitleTextColor(getResources().getColor(R.color.lightTextPrimary));
 
@@ -84,11 +78,15 @@ public class MainActivity extends Activity {
 	}
 
 	@Override
+	protected void onPostCreate(Bundle savedInstanceState) {
+		super.onPostCreate(savedInstanceState);
+		mToggle.syncState();
+	}
+
+	@Override
 	protected void onSaveInstanceState (Bundle outState) {
 		outState.putInt("navSelectedIndex", mSelectedIndex);
 	}
-
-
 
 	private void initNavMenu() {
 		Menu menu = mNavView.getMenu();
