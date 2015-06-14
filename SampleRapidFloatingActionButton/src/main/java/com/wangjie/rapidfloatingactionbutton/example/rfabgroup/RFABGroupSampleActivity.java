@@ -1,6 +1,7 @@
 package com.wangjie.rapidfloatingactionbutton.example.rfabgroup;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 
 import com.wangjie.rapidfloatingactionbutton.example.R;
@@ -27,7 +28,7 @@ public class RFABGroupSampleActivity extends BaseActivity  {
             }
         });
 
-        android.app.FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction()
                 .add(R.id.content, new RFABGroupSampleFragment())
                 .commit();

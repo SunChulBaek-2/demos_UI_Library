@@ -1,9 +1,9 @@
 package com.melnykov.fab.sample;
 
 import android.app.AlertDialog;
-import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
@@ -27,7 +27,7 @@ public class MainActivity extends BaseActivity  {
             }
         });
 
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction()
                 .add(R.id.content, new FloatingActionButton2Fragment())
                 .commit();

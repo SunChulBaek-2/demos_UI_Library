@@ -1,7 +1,7 @@
 package it.neokree.materialtabtest;
 
-import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 
 import kr.pe.ssun.mylibrary.BaseActivity;
@@ -24,7 +24,7 @@ public class MainActivity extends BaseActivity  {
             }
         });
 
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction()
                 .add(R.id.content, new MaterialTabFragment())
                 .commit();

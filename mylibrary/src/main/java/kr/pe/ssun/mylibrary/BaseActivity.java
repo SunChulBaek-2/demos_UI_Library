@@ -1,13 +1,13 @@
 package kr.pe.ssun.mylibrary;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
 import android.view.View;
 
 import com.balysv.materialmenu.MaterialMenuDrawable;
@@ -19,7 +19,7 @@ import static com.balysv.materialmenu.MaterialMenuDrawable.DEFAULT_TRANSFORM_DUR
 /**
  * Created by x1210x on 2015-05-14.
  */
-public class BaseActivity extends Activity {
+public class BaseActivity extends AppCompatActivity {
 	public enum IconState {
 		ARROW(MaterialMenuDrawable.IconState.ARROW),
 		BURGER(MaterialMenuDrawable.IconState.BURGER),
