@@ -103,6 +103,7 @@
     <orderEntry type="module" module-name="SampleMaterialTab2" exported="" />
     <orderEntry type="module" module-name="SampleFloatingActionButton" exported="" />
     <orderEntry type="module" module-name="SampleRapidFloatingActionButton" exported="" />
+    <orderEntry type="module" module-name="SampleCircleImageView" exported="" />
     <orderEntry type="module" module-name="SampleMaterialTab" exported="" />
   </component>
 </module>

@@ -11,7 +11,8 @@ public enum Library {
   ANDROID_CHIPS("AndroidChips", Category.MATERIAL, R.string.desc_android_chips, R.string.desc_android_chips, com.android.ex.chips.sample.MainActivity.class),
   FLOATING_ACTION_BUTTON("FloatingActionButton", Category.MATERIAL, R.string.desc_floating_action_button, R.string.desc_floating_action_button, com.getbase.floatingactionbutton.sample.MainActivity.class),
   FLOATING_ACTION_BUTTON2("FloatingActionButton", Category.MATERIAL, R.string.desc_floating_action_button2, R.string.desc_floating_action_button2, com.melnykov.fab.sample.MainActivity.class),
-  RAPID_FLOATING_ACTION_BUTTON("RapidFloatingActionButton", Category.MATERIAL, R.string.desc_rapid_floating_action_button, R.string.desc_rapid_floating_action_button, MainActivity.class);
+  RAPID_FLOATING_ACTION_BUTTON("RapidFloatingActionButton", Category.MATERIAL, R.string.desc_rapid_floating_action_button, R.string.desc_rapid_floating_action_button, MainActivity.class),
+  CIRCLE_IMAGE_VIEW("CircleImageView", Category.IMAGE, R.string.desc_circle_image_view, R.string.desc_circle_image_view, de.hdodenhof.circleimageview.sample.MainActivity.class);
 
   private String title;
   private Category category;

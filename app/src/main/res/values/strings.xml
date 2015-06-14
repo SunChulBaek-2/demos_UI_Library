@@ -8,4 +8,5 @@
     <string name="desc_floating_action_button" translatable="false">https://github.com/futuresimple/android-floating-action-button</string>
     <string name="desc_floating_action_button2" translatable="false">https://github.com/makovkastar/FloatingActionButton</string>
     <string name="desc_rapid_floating_action_button" translatable="false">https://github.com/wangjiegulu/RapidFloatingActionButton</string>
+    <string name="desc_circle_image_view" translatable="false">https://github.com/hdodenhof/CircleImageView</string>
 </resources>
